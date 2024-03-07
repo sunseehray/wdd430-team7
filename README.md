@@ -1,9 +1,13 @@
 ## Team Members
--Sunseehray Tirazona
--Lourenco Da Silva
--Jeremy Troff
--Moises Parra Lozano
--Isaac Salirrosas
+Sunseehray Tirazona
+
+Lourenco Da Silva
+
+Jeremy Troff
+
+Moises Parra Lozano
+
+Isaac Salirrosas
 
 ## Next.js App Router Course - Starter
 
