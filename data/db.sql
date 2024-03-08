@@ -2,9 +2,6 @@
 CREATE TYPE public.account_type AS ENUM
     ('Admin', 'Seller', 'Buyer');
 
-ALTER TYPE public.account_type
-    OWNER TO default;
-
 -- Add UUID extension
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
