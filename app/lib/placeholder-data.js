@@ -180,9 +180,20 @@ const revenue = [
   { month: 'Dec', revenue: 4800 },
 ];
 
+const accounts = [
+  {
+    id: 'a37466f6-c81b-41a8-9a0c-9d0ef5c95401',
+    firstname: 'Leonardo',
+    lastname: 'Da Vinci',
+    email: 'leodv@wdd.com',
+    password: '123456',
+  },
+];
+
 module.exports = {
   users,
   customers,
   invoices,
   revenue,
+  accounts,
 };

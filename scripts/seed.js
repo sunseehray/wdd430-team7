@@ -4,8 +4,52 @@ const {
   customers,
   revenue,
   users,
+  accounts,
 } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
+
+// Create and seed the account table for Handicraft Haven
+async function seedAccount(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+
+    // Create the "account" table if it doesn't exist
+    const createTable = await client.sql`
+      CREATE TABLE IF NOT EXISTS account (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        firstname VARCHAR(255) NOT NULL,
+        lastname VARCHAR(255) NOT NULL,
+        email TEXT NOT NULL UNIQUE,
+        password TEXT NOT NULL,
+        account_type account_type NOT NULL DEFAULT 'Buyer'::account_type
+      );
+    `;
+    
+    console.log(`Created "account" table`);
+
+    // Insert data into the "account" table
+    const insertedAccounts = await Promise.all(
+      accounts.map(async (account) => {
+        const hashedPassword = await bcrypt.hash(account.password, 10);
+        return client.sql`
+        INSERT INTO account (id, firstname, lastname, email, password)
+        VALUES (${account.id}, ${account.firstname}, ${account.lastname}, ${account.email}, ${hashedPassword})
+        ON CONFLICT (id) DO NOTHING;
+        `;
+      }),
+    );
+
+    console.log(`Seeded ${insertedAccounts.length} accounts`);
+
+    return {
+      createTable,
+      accounts: insertedAccounts,
+    }
+  } catch (error) {
+    console.error('Error creating account table: ', error);
+    throw error;
+  }
+}
 
 async function seedUsers(client) {
   try {
@@ -163,6 +207,7 @@ async function seedRevenue(client) {
 async function main() {
   const client = await db.connect();
 
+  await seedAccount(client);
   await seedUsers(client);
   await seedCustomers(client);
   await seedInvoices(client);
