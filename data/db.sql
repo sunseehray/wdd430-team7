@@ -104,3 +104,42 @@ SET
   product_description = REPLACE(product_description, 'description', 'changed description') 
 WHERE 
   product_title = 'Monalisa' AND artist_id='538c6f54-a22a-49a3-8815-8938c2f58932';
+
+-- create table 'rating'
+CREATE TABLE IF NOT EXISTS public.rating (
+	rating_id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+	rating_title character varying,
+	rating_review_text TEXT,
+	rating_value INT NOT NULL CHECK (rating_value BETWEEN 1 AND 5),
+	buyer_id UUID NOT NULL,
+	product_id UUID NOT NULL
+);
+
+-- create relationship between rating and buyer
+ALTER TABLE IF EXISTS public.rating
+	ADD CONSTRAINT fk_buyer FOREIGN KEY (buyer_id)
+	REFERENCES public.account (account_id) MATCH SIMPLE
+	ON UPDATE CASCADE
+	ON DELETE NO ACTION;
+
+-- create relationship between rating and product
+ALTER TABLE IF EXISTS public.rating
+	ADD CONSTRAINT fk_product FOREIGN KEY (product_id)
+	REFERENCES public.product (product_id) MATCH SIMPLE
+	ON UPDATE CASCADE
+	ON DELETE NO ACTION;
+
+-- create table 'story'
+CREATE TABLE IF NOT EXISTS public.story (
+	story_id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+	story_content TEXT NOT NULL,
+	story_date DATE NOT NULL,
+	artist_id UUID NOT NULL
+);
+
+-- create relationship between story and artist
+ALTER TABLE IF EXISTS public.story
+	ADD CONSTRAINT fk_artist FOREIGN KEY (artist_id)
+	REFERENCES public.account (account_id) MATCH SIMPLE
+	ON UPDATE CASCADE
+	ON DELETE NO ACTION;
