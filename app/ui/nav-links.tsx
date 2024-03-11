@@ -41,10 +41,10 @@ import { lato } from '@/app/ui/fonts';
             <Link
               key={link.name}
               href={link.href}
-              className={`${lato.className} flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-amber-300 md:flex-none md:justify-start md:p-2 md:px-3`}
+              className={`${lato.className} flex h-[48px] items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-amber-300 md:flex-none md:justify-start md:p-2 md:px-3`}
             >
               <LinkIcon className="w-6" />
-              <p className="hidden md:block">{link.name}</p>
+              <p className="">{link.name}</p>
             </Link>
           );
         })}

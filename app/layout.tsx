@@ -13,34 +13,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${lato.className} antialiased bg-blue-100 flex flex-row`}>
-        {/* SIDE NAVIGATION */}
+      <body className={`${lato.className} antialiased bg-blue-100 flex flex-col`}>
+        {/* SIDE NAVIGATION and HEADER */}
         <div className="flex flex-row md:w-1/6">
           <SideNav />
-          {/* side navigation */}
-          {/* <div className='flex flex-col grow p-4 gap-4 bg-orange-500 hidden md:inline'>
-            <Link 
-              href={"/"}
-              className="flex h-30 items-center justify-center rounded-lg p-4 md:h-30 priority"
-            >  
-              <Image 
-                src="/images/handicraft_haven_logo.png"
-                width={75}
-                height={75}
-                priority={true}
-                className="rounded-full"
-                alt="Handcraft Haven Logo"
-              />
-            </Link>
-            <NavLinks/>
-          </div>
-          <div className='mt-4 flex w-8 h-8 bg-orange-500 items-center justify-center rounded-tr-full rounded-br-full'>
-            <ChevronDoubleRightIcon className='w-6'/>
-          </div> */}
-        </div>
-        {/* HEADER AND MAIN */}
-        <div className='flex flex-col grow'>
-          <header className="flex flex-row items-end justify-end md:justify-between rounded-1g p-4 gap-4 priority">
+          <header className=" h-20 flex flex-row items-center justify-end md:justify-between rounded-1g p-4 gap-4 priority">
             <h1 className={`${patrick_hand.className} hidden text-orange-500 text-4xl text-left md:inline`}>Handcrafted Haven</h1>
             {/* search form */}
             <form className='flex flex-row items-end'>
@@ -61,6 +38,10 @@ export default function RootLayout({
               <UserCircleIcon className='w-6'/>
             </div>
           </header>
+        </div>
+        {/* MAIN */}
+        <div className='flex flex-col grow'>
+          
           <main className="flex min-h-screen bg-blue-300 p-4">
               {children}
           </main>
