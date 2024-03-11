@@ -25,14 +25,15 @@ export default function SideNav() {
 
       {/* toggle sidenav */}
       {isOpen && (
-      <div className='flex flex-col gap-2 p-4 bg-orange-500 absolute top-20 left-0'>
+      <div className='flex flex-col w-full gap-2 p-4 bg-orange-500 absolute top-20 left-0 md:static'>
         <NavLinks />
-        <form>
+        {/* put the logout form under the usericon instead */}
+        {/* <form>
           <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
             <PowerIcon className="w-6" />
             <div className="hidden md:block">Sign Out</div>
           </button>
-        </form>
+        </form> */}
       </div>
       )}
     </div>
