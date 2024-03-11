@@ -17,7 +17,8 @@ export default function SideNav() {
   return (
     <div className="flex flex-col grow">
         {/* button to toggle */}
-        <button onClick={toggleSideNav}
+        <button 
+          onClick={toggleSideNav}
           className='flex w-20 h-20 items-center justify-center relative'>
             <Bars3Icon className='w-8 p-1'/>
         </button>

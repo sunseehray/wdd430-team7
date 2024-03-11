@@ -9,7 +9,7 @@ import NavLinks from './ui/nav-links';
 export default function Page() {
   return (
         <div>
-          Widgets
+          HOME
         </div>
   );
 }
