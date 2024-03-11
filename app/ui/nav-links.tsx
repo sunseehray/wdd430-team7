@@ -16,18 +16,18 @@ import { lato } from '@/app/ui/fonts';
       icon: HomeIcon 
     },
     {
-      name: 'Catalog',
-      href: '/catalog',
+      name: 'Apparel',
+      href: '/apparel',
       icon: BookOpenIcon
     },
     { 
-      name: 'Categories', 
-      href: '/categories', 
+      name: 'Decor', 
+      href: '/decor', 
       icon: QueueListIcon 
     },
     { 
-      name: 'Account', 
-      href: '/account', 
+      name: 'Art', 
+      href: '/art', 
       icon: UserCircleIcon
     },
   ];
