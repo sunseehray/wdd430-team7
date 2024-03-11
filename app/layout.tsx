@@ -16,8 +16,9 @@ export default function RootLayout({
       <body className={`${lato.className} antialiased bg-blue-100 flex flex-row`}>
         {/* SIDE NAVIGATION */}
         <div className="flex flex-row md:w-1/6">
+          <SideNav />
           {/* side navigation */}
-          <div className='flex flex-col grow p-4 gap-4 bg-orange-500 hidden md:inline'>
+          {/* <div className='flex flex-col grow p-4 gap-4 bg-orange-500 hidden md:inline'>
             <Link 
               href={"/"}
               className="flex h-30 items-center justify-center rounded-lg p-4 md:h-30 priority"
@@ -35,18 +36,18 @@ export default function RootLayout({
           </div>
           <div className='mt-4 flex w-8 h-8 bg-orange-500 items-center justify-center rounded-tr-full rounded-br-full'>
             <ChevronDoubleRightIcon className='w-6'/>
-          </div>
+          </div> */}
         </div>
         {/* HEADER AND MAIN */}
         <div className='flex flex-col grow'>
           <header className="flex flex-row items-end justify-end md:justify-between rounded-1g p-4 gap-4 priority">
             <h1 className={`${patrick_hand.className} hidden text-orange-500 text-4xl text-left md:inline`}>Handcrafted Haven</h1>
             {/* search form */}
-            <form className='hidden md:inline'>
+            <form className='flex flex-row items-end'>
               <label htmlFor="search-bar" className='hidden'></label>
               <input 
                 type="text"
-                className='rounded-full'
+                className='rounded-full hidden md:block'
               />
               <button
                 type='submit'
