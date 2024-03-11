@@ -1,5 +1,5 @@
 export default function Page() {
     return (
-        <p>Categories</p>
+        <p>Decor</p>
     );
 }

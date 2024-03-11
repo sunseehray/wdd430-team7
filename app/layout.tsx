@@ -4,6 +4,7 @@ import SideNav from '@/app/ui/dashboard/sidenav';
 import Image from 'next/image';
 import Link from 'next/link';
 import NavLinks from '@/app/ui/nav-links';
+import { UserCircleIcon, MagnifyingGlassIcon, BellIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
 
 export default function RootLayout({
   children,
@@ -31,12 +32,26 @@ export default function RootLayout({
             <NavLinks/>
           </div>
           <div className="flex grow flex-col">
-            <div className="flex flex-row items-begin justify-between rounded-1g p-4 gap-4 priority">
+            <div className="flex flex-row items-end justify-between rounded-1g p-4 gap-4 priority">
               <h1 className={`${patrick_hand.className} text-orange-500 text-4xl text-left`}>Handcrafted Haven</h1>
-              <p>Search bar</p>
-              <p>Notifications Icon</p>
-              <p>Cart icon</p>
-              <p>User icon</p>
+              {/* search form */}
+              <form>
+                <label htmlFor="search-bar" className='hidden'></label>
+                <input 
+                  type="text"
+                  className='rounded-full'
+                />
+                <button
+                  type='submit'
+                >
+                  <MagnifyingGlassIcon className='ml-4 w-6'/>
+                </button>
+              </form>
+              <div className='flex flex-row justify-end gap-4'>
+                <BellIcon className='w-6'/>
+                <ShoppingCartIcon className='w-6'/>
+                <UserCircleIcon className='w-6'/>
+              </div>
             </div>
             <div className="flex items-center justify-center bg-blue-300 p-4 md:block md:grow">
               {children}
